@@ -16,7 +16,7 @@ int main()
 	ofstream fileProto;
 	int startChoice;
 	int countNum = 0;
-	int getVnum;
+	int getVnum = 0;
 	int handChoice;
 	int goldBuy;
 	int goldSell;
@@ -36,7 +36,9 @@ int main()
 	int size;
 	int refineNum = 9;
 	int refineSet;
+	int i = 0;
 	char answerYn;
+	int getVnumRef = getVnum + 1;
 	string itemName;
 	string itemType;
 	string itemType2;
@@ -55,7 +57,17 @@ int main()
 		"APPLY_ATTBONUS_ORC",
 		"APPLY_STEAL_HP",
 		"APPLY_CRITICAL_PCT",
-		"APPLY_PENETRATE_PCT"
+		"APPLY_PENETRATE_PCT",
+		"APPLY_MAX_HP",
+		"APPLY_CON",
+		"APPLY_INT",
+		"APPLY_DEX",
+		"APPLY_STR",
+		"APPLY_ATT_SPEED",
+		"APPLY_MOV_SPEED",
+		"APPLY_CAST_SPEED",
+		"APPLY_HP_REGEN",
+		"APPLY_POISON_PCT"
 
 	};
 	vector<string> armorBonus =
@@ -75,7 +87,13 @@ int main()
 		"APPLY_STR",
 		"APPLY_ATT_SPEED",
 		"APPLY_MOV_SPEED",
-
+		"APPLY_CAST_SPEED",
+		"APPLY_HP_REGEN",
+		"APPLY_POISON_PCT"
+		"APPLY_RESIST_SWORD",
+		"APPLY_RESIST_TWOHAND",
+		"APPLY_RESIST_DAGGER",
+		"APPLY_RESIST_BELL"
 
 	};
 	fileProto.open("item_proto.txt");
@@ -173,12 +191,37 @@ int main()
 		else {
 			addonType = 0;
 		}
-		fileProto << getVnum << "	" << itemName << "	" << itemType << "	" << itemType2
-			<< "	" << size << "	" << antiFlag << "	" << "ITEM_TUNABLE" << "	" << wearFlag << "	" << "NONE"
-			<< "	" << goldBuy << "	" << goldSell << "	" << 0 << "	 " << 0 << "	" << 15 << "	"
-			<< "LEVEL" << "	" << levelInput << "	" << "LIMIT_NONE" << "	" << 0 << "	 " << addBonus1 << "	" << bonus1Val
-			<< "	" << addBonus2 << "	" << bonus2Val << "	" << addBonus3 << "	" << bonus3Val << "	" << 0
-			<< "	" << magicAttValueStart << "	" << magicAttValueEnd << "	" << attackDamageStart << "	" << attackDamageEnd << "	" << sockets << "	" << addonType;
+		cout << "Do you want to be tunable till +9 Y/N?";
+		cin >> answerYn;
+		cout << "Enter your refine_set (materials needed) number" << endl;
+		cin >> refineSet;
+		if (answerYn == 'y') { // LOOP +9 start
+			countNum = 0;
+			while (i <= refineNum)
+
+			{
+
+				fileProto << getVnum << "	" << itemName << "+" << countNum << "	" << itemType << "	" << itemType2
+					<< "	" << size << "	" << antiFlag << "	" << antiSell << "	" << "ITEM_TUNABLE" << "	" << wearFlag << "	" << "NONE"
+					<< "	" << goldBuy << "	" << goldSell << "	" << getVnumRef << "	 " << refineSet << "	" << 15 << "	"
+					<< "LEVEL" << "	" << levelInput << "	" << "LIMIT_NONE" << "	" << 0 << "	 " << addBonus1 << "	" << bonus1Val
+					<< "	" << addBonus2 << "	" << bonus2Val << "	" << addBonus3 << "	" << bonus3Val << "	" << 0
+					<< "	" << magicAttValueStart << "	" << magicAttValueEnd << "	" << attackDamageStart << "	" << attackDamageEnd << "	" << sockets << "	" << addonType << endl;
+
+				getVnum++;
+				countNum++;
+				refineSet++;
+				i++;
+			}
+		}
+		else {
+			fileProto << getVnum << "	" << itemName << "	" << itemType << "	" << itemType2
+				<< "	" << size << "	" << antiFlag << "	" << antiSell << "	" << "ITEM_TUNABLE" << "	" << wearFlag << "	" << "NONE"
+				<< "	" << goldBuy << "	" << goldSell << "	" << 0 << "	 " << 0 << "	" << 15 << "	"
+				<< "LEVEL" << "	" << levelInput << "	" << "LIMIT_NONE" << "	" << 0 << "	 " << addBonus1 << "	" << bonus1Val
+				<< "	" << addBonus2 << "	" << bonus2Val << "	" << addBonus3 << "	" << bonus3Val << "	" << 0
+				<< "	" << magicAttValueStart << "	" << magicAttValueEnd << "	" << attackDamageStart << "	" << attackDamageEnd << "	" << sockets << "	" << addonType;
+		}
 		fileProto.close();
 		break; // weapon end
 	case 2: // ARMOR START 
@@ -269,12 +312,10 @@ int main()
 			addonType = 0;
 		}
 		cout << "Do you want to be tunable till +9 Y/N?";
-		int i = 0;
 		cin >> answerYn;
 		cout << "Enter your refine_set (materials needed) number" << endl;
 		cin >> refineSet;
-		int getVnumRef = getVnum + 1;
-		if (answerYn == 'y') {
+		if (answerYn == 'y') { // LOOP +9 start
 			countNum = 0;
 			while ( i <= refineNum)
 	
@@ -289,6 +330,7 @@ int main()
 
 				getVnum++;
 				countNum++;
+				refineSet++;
 				i++;
 			}
 		} else {
