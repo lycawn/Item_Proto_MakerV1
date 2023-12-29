@@ -3,6 +3,12 @@
 #include <string>
 #include <fstream>
 
+/*
+## ITEM_PROTO_MAKER_VERSION1 ##
+## BY LYARCHON ##
+## OLDGODSMT2 ##
+*/
+
 using namespace std;
 
 int main()
