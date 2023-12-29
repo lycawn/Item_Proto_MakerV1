@@ -1,0 +1,10 @@
+41790	protector+0
+41791	protector+1
+41792	protector+2
+41793	protector+3
+41794	protector+4
+41795	protector+5
+41796	protector+6
+41797	protector+7
+41798	protector+8
+41799	protector+9
