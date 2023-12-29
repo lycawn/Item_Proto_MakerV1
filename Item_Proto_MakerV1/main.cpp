@@ -39,6 +39,8 @@ int main()
 	int i = 0;
 	char answerYn;
 	int getVnumRef = getVnum + 1;
+	int defenseValue;
+	int value3 = 0;
 	string itemName;
 	string itemType;
 	string itemType2;
@@ -105,7 +107,7 @@ int main()
 		wearFlag = "WEAR_WEAPON";
 		antiFlag = "ANTI_MUDANG";
 		itemType = "ITEM_WEAPON";
-		cout << "[1]1Hand sword or [2]2Hand sword [3]Ninja Dagger [4]Ninja Bow" << endl;
+		cout << "[1]1Hand sword or [2]2Hand sword [3]Ninja Dagger [4]Ninja Bow [5]Sura One hand [6]Shaman Bell" << endl;
 		cin >> handChoice;
 		if (handChoice == 1) {
 			itemType2 = "WEAPON_SWORD";
@@ -128,6 +130,27 @@ int main()
 			itemType2 = "WEAPON_BOW";
 			size = 2;
 
+		}
+		else if (handChoice == 5)
+		{
+			antiFlag = "ANTI_MUSA | ANTI_ASSASSIN | ANTI_MUDANG";
+			itemType2 = "WEAPON_SWORD";
+			size = 2;
+		}
+		else if (handChoice == 6)
+		{
+			antiFlag = "ANTI_MUSA | ANTI_ASSASSIN | ANTI_SURA";
+			itemType2 = "WEAPON_BELL";
+			size = 1;
+		}
+		else if (handChoice == 7)
+		{
+			antiFlag = "ANTI_MUSA | ANTI_ASSASSIN | ANTI_SURA";
+			itemType2 = "WEAPON_FAN";
+			size = 1;
+		}
+		else {
+			cout << "Invalid Keys ERROR 9000" << endl;
 		}
 		cout << "Enter VNUM wanted" << endl;
 		cin >> getVnum;
@@ -292,14 +315,10 @@ int main()
 		addBonus3 = weaponBonus.at(bonus3Choice - 1);
 		cout << "Enter value of " << addBonus3 << endl;
 		cin >> bonus3Val;
-		cout << "Enter magic attack value minimum" << endl;
-		cin >> magicAttValueStart;
-		cout << "Enter magic attack value maximum" << endl;
-		cin >> magicAttValueEnd;
-		cout << "Enter Attack Damage value minimum" << endl;
-		cin >> attackDamageStart;
-		cout << "Enter Attack Damage value maximum" << endl;
-		cin >> attackDamageEnd;
+		cout << "Enter magic defense" << endl;
+		cin >> defenseValue;
+		cout << "Enter animation value (VALUE3) or use 0" << endl;
+		cin >> value3;
 		cout << "Enter desired number sockets " << endl;
 		cin >> sockets;
 		cout << "Enter addon type [1]With avg Dmg possibility [2] without avg dmg possibility " << endl;
@@ -326,7 +345,7 @@ int main()
 					<< "	" << goldBuy << "	" << goldSell << "	" << getVnumRef << "	 " << refineSet << "	" << 15 << "	"
 					<< "LEVEL" << "	" << levelInput << "	" << "LIMIT_NONE" << "	" << 0 << "	 " << addBonus1 << "	" << bonus1Val
 					<< "	" << addBonus2 << "	" << bonus2Val << "	" << addBonus3 << "	" << bonus3Val << "	" << 0
-					<< "	" << magicAttValueStart << "	" << magicAttValueEnd << "	" << attackDamageStart << "	" << attackDamageEnd << "	" << sockets << "	" << addonType << endl;
+					<< "	" << defenseValue <<"	"<< value3 << "	" << sockets << "	" << addonType << endl;
 
 				getVnum++;
 				countNum++;
@@ -334,12 +353,12 @@ int main()
 				i++;
 			}
 		} else {
-		fileProto << getVnum << "	" << itemName << "	" << itemType << "	" << itemType2
-			<< "	" << size << "	" << antiFlag << "	" << antiSell << "	" << "ITEM_TUNABLE" << "	" << wearFlag << "	" << "NONE"
-			<< "	" << goldBuy << "	" << goldSell << "	" << 0 << "	 " << 0 << "	" << 15 << "	"
-			<< "LEVEL" << "	" << levelInput << "	" << "LIMIT_NONE" << "	" << 0 << "	 " << addBonus1 << "	" << bonus1Val
-			<< "	" << addBonus2 << "	" << bonus2Val << "	" << addBonus3 << "	" << bonus3Val << "	" << 0
-			<< "	" << magicAttValueStart << "	" << magicAttValueEnd << "	" << attackDamageStart << "	" << attackDamageEnd << "	" << sockets << "	" << addonType;
+			fileProto << getVnum << "	" << itemName << "	" << itemType << "	" << itemType2
+				<< "	" << size << "	" << antiFlag << "	" << antiSell << "	" << "ITEM_TUNABLE" << "	" << wearFlag << "	" << "NONE"
+				<< "	" << goldBuy << "	" << goldSell << "	" << 0 << "	 " << 0 << "	" << 15 << "	"
+				<< "LEVEL" << "	" << levelInput << "	" << "LIMIT_NONE" << "	" << 0 << "	 " << addBonus1 << "	" << bonus1Val
+				<< "	" << addBonus2 << "	" << bonus2Val << "	" << addBonus3 << "	" << bonus3Val << "	" << 0
+				<< "	" << defenseValue <<"	" << "0" << "	" << value3 << "	" << sockets << "	" << addonType;
 		}
 		fileProto.close();
 		break; // ARMOR END
