@@ -54,7 +54,7 @@ int main()
 	string antiSell = "NONE";
 	vector<string> weaponBonus =
 	{
-		"APPLY_ATTBONUS_HUMAN",
+				"APPLY_ATTBONUS_HUMAN",
 		"APPLY_ATTBONUS_MONSTER",
 		"APPLY_ATTBONUS_DEVIL",
 		"APPLY_ATTBONUS_ANIMAL",
@@ -72,6 +72,21 @@ int main()
 		"APPLY_CAST_SPEED",
 		"APPLY_HP_REGEN",
 		"APPLY_POISON_PCT"
+		"APPLY_RESIST_SWORD",
+		"APPLY_RESIST_TWOHAND",
+		"APPLY_RESIST_DAGGER",
+		"APPLY_RESIST_BOW",
+		"APPLY_RESIST_WIND",
+		"APPLY_RESIST_MAGIC",
+		"APPLY_RESIST_ELEC",
+		"APPLY_RESIST_FIRE",
+		"APPLY_REFLECT_MELEE",
+		"APPLY_POISON_REDUCE",
+		"APPLY_NORMAL_HIT_DAMAGE_BONUS",
+		"APPLY_SKILL_DAMAGE_BONUS",
+		"APPLY_NORMAL_HIT_DEFEND_BONUS",
+		"APPLY_SKILL_DEFEND_BONUS",
+		"APPLY_MAX_HP_PCT"
 
 	};
 	vector<string> armorBonus =
@@ -97,7 +112,18 @@ int main()
 		"APPLY_RESIST_SWORD",
 		"APPLY_RESIST_TWOHAND",
 		"APPLY_RESIST_DAGGER",
-		"APPLY_RESIST_BELL"
+		"APPLY_RESIST_BOW",
+		"APPLY_RESIST_WIND",
+		"APPLY_RESIST_MAGIC",
+		"APPLY_RESIST_ELEC",
+		"APPLY_RESIST_FIRE",
+		"APPLY_REFLECT_MELEE",
+		"APPLY_POISON_REDUCE",
+		"APPLY_NORMAL_HIT_DAMAGE_BONUS",
+		"APPLY_SKILL_DAMAGE_BONUS",
+		"APPLY_NORMAL_HIT_DEFEND_BONUS",
+		"APPLY_SKILL_DEFEND_BONUS",
+		"APPLY_MAX_HP_PCT"
 
 	};
 
@@ -174,6 +200,7 @@ int main()
 				countNum++;
 				cout << "[" << countNum << "]" << val << endl;
 			}
+			cout << "Enter your value " << endl;
 			cin >> bonus1Choice;
 			addBonus1 = weaponBonus.at(bonus1Choice - 1);
 			cout << "Enter value of " << addBonus1 << endl;
@@ -185,6 +212,7 @@ int main()
 				countNum++;
 				cout << "[" << countNum << "]" << val << endl;
 			}
+			cout << "Enter your value " << endl;
 			cin >> bonus2Choice;
 			addBonus2 = weaponBonus.at(bonus2Choice - 1);
 			cout << "Enter value of " << addBonus2 << endl;
@@ -196,6 +224,8 @@ int main()
 				countNum++;
 				cout << "[" << countNum << "]" << val << endl;
 			}
+			cout << "Enter your value " << endl;
+			cout << "Enter your value " << endl;
 			cin >> bonus3Choice;
 			addBonus3 = weaponBonus.at(bonus3Choice - 1);
 			cout << "Enter value of " << addBonus3 << endl;
@@ -294,6 +324,7 @@ int main()
 				countNum++;
 				cout << "[" << countNum << "]" << val << endl;
 			}
+			cout << "Enter your value " << endl;
 			cin >> bonus1Choice;
 			addBonus1 = weaponBonus.at(bonus1Choice - 1);
 			cout << "Enter value of " << addBonus1 << endl;
@@ -305,6 +336,7 @@ int main()
 				countNum++;
 				cout << "[" << countNum << "]" << val << endl;
 			}
+			cout << "Enter your value " << endl;
 			cin >> bonus2Choice;
 			addBonus2 = weaponBonus.at(bonus2Choice - 1);
 			cout << "Enter value of " << addBonus2 << endl;
@@ -316,6 +348,7 @@ int main()
 				countNum++;
 				cout << "[" << countNum << "]" << val << endl;
 			}
+			cout << "Enter your value " << endl;
 			cin >> bonus3Choice;
 			addBonus3 = weaponBonus.at(bonus3Choice - 1);
 			cout << "Enter value of " << addBonus3 << endl;
